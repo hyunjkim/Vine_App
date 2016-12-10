@@ -2,8 +2,11 @@ package nyc.c4q.hyun.vine_app;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import nyc.c4q.hyun.vine_app.network.VinePOJO;
 import nyc.c4q.hyun.vine_app.network.VineService;
@@ -19,6 +22,7 @@ public class VineActivity extends AppCompatActivity {
 
     private final String TAG = "VineActivity";
     private final String API_KEY = "https://vine.co/";
+    private List<Objects> listofPojo = new ArrayList<>();
     private VinePOJO vinePOJO;
 
     @Override
@@ -44,11 +48,11 @@ public class VineActivity extends AppCompatActivity {
             public void onResponse(Call<VinePOJO> call, Response<VinePOJO> response) {
 
                 vinePOJO = response.body();
-                Log.d(TAG,response.raw().toString());
-                Log.d(TAG,vinePOJO.toString());
+//                Log.d(TAG,vinePOJO.toString());
 
                 Toast.makeText(getApplicationContext(), "VINE RESPONSE SUCCESSFUL", Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onFailure(Call<VinePOJO> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "VINE RESPONSE FAILURE", Toast.LENGTH_SHORT).show();
