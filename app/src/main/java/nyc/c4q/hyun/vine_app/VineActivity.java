@@ -46,7 +46,6 @@ public class VineActivity extends AppCompatActivity {
                 vinePOJO = response.body();
                 data = vinePOJO.getData();
                 recordList = data.getRecords();
-
                 mRecyclerView = (RecyclerView) findViewById(R.id.vine_RV);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getParent()));
                 mRecyclerView.setAdapter(new VineAdapter(recordList));
