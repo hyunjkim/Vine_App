@@ -4,9 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/vineusername_TV"
+    <LinearLayout
+        android:id="@+id/vinetextbox_background"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/vineusername_TV"
+            android:layout_weight=".3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+        <TextView
+            android:id="@+id/vineliked_TV"
+            android:layout_weight=".6"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+
 
 </LinearLayout>
