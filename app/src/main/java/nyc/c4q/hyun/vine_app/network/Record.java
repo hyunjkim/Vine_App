@@ -34,9 +34,6 @@ public class Record {
     @SerializedName("videoWebmUrl")
     @Expose
     private Object videoWebmUrl;
-    @SerializedName("loops")
-    @Expose
-    private Loops loops;
     @SerializedName("thumbnailUrl")
     @Expose
     private String thumbnailUrl;
@@ -52,9 +49,7 @@ public class Record {
     @SerializedName("avatarUrl")
     @Expose
     private String avatarUrl;
-    @SerializedName("comments")
-    @Expose
-    private Comments comments;
+
     @SerializedName("entities")
     @Expose
     private List<Object> entities = null;
@@ -275,24 +270,6 @@ public class Record {
     /**
      *
      * @return
-     * The loops
-     */
-    public Loops getLoops() {
-        return loops;
-    }
-
-    /**
-     *
-     * @param loops
-     * The loops
-     */
-    public void setLoops(Loops loops) {
-        this.loops = loops;
-    }
-
-    /**
-     *
-     * @return
      * The thumbnailUrl
      */
     public String getThumbnailUrl() {
@@ -380,23 +357,6 @@ public class Record {
         this.avatarUrl = avatarUrl;
     }
 
-    /**
-     *
-     * @return
-     * The comments
-     */
-    public Comments getComments() {
-        return comments;
-    }
-
-    /**
-     *
-     * @param comments
-     * The comments
-     */
-    public void setComments(Comments comments) {
-        this.comments = comments;
-    }
 
     /**
      *
