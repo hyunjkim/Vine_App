@@ -28,6 +28,5 @@ public class VineViewHolder extends RecyclerView.ViewHolder {
         textBox.setBackground(Drawable.createFromPath(record.getProfileBackground()));
         usernameTV.setText(record.getUsername());
         likedTV.setText(record.getLiked());
-
     }
 }

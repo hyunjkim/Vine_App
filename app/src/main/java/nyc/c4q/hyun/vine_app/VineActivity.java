@@ -20,11 +20,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class VineActivity extends AppCompatActivity {
 
-    private final String API_KEY = "https://vine.co/";
-    private VinePOJO vinePOJO;
-    private RecyclerView mRecyclerView;
-    private Data data;
-    private List<Record> recordList;
+    private final String TAG = "VineActivity";
+    protected final String API_KEY = "https://vine.co/";
+    protected RecyclerView mRecyclerView;
+    protected Data data;
+    protected List<Record> recordList;
+    VinePOJO vinePOJO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,25 +38,21 @@ public class VineActivity extends AppCompatActivity {
                 .build();
 
         VineService vineService = retrofit.create(VineService.class);
-        final Call<VinePOJO> vinePOJOCall = vineService.getVine();
-
+        Call<VinePOJO> vinePOJOCall = vineService.getVine();
         vinePOJOCall.enqueue(new Callback<VinePOJO>() {
             @Override
             public void onResponse(Call<VinePOJO> call, Response<VinePOJO> response) {
-
                 vinePOJO = response.body();
-                data = vinePOJO.getData();
-                recordList = data.getRecords();
+                recordList = vinePOJO.getData().getRecords();
                 mRecyclerView = (RecyclerView) findViewById(R.id.vine_RV);
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getParent()));
                 mRecyclerView.setAdapter(new VineAdapter(recordList));
-
-                Toast.makeText(getApplicationContext(), "VINE RESPONSE SUCCESSFUL", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VineActivity.this, "VINE RESPONSE SUCCESSFUL", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<VinePOJO> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "VINE RESPONSE FAILURE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VineActivity.this, "VINE RESPONSE FAILUREE", Toast.LENGTH_SHORT).show();
             }
         });
     }
